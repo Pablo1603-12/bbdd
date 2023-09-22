@@ -18,10 +18,7 @@ import java.sql.SQLException;
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        // Crear una instancia de la clase Test
         Test test = new Test();
-
-        // Llamar al método consultaBiblioteca para probarlo
         test.consultaBiblioteca();
 
     }
