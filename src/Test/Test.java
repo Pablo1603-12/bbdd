@@ -1,5 +1,8 @@
 package Test;
 
+import java.io.IOException;
+import modelo.Libro;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,43 +11,27 @@ package Test;
  *
  * @author Puesto19
  */
-import java.sql.Connection;
-import conexion.Conexion;
-import java.sql.Statement;
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        Test test = new Test();
-        test.consultaBiblioteca();
-
-    }
-
-    public void consultaBiblioteca() throws IOException {
-        String consultaSQL = "SELECT * FROM gbp_almacen.gbp_alm_cat_libros";
-
-        try {
-            Connection conexion = Conexion.conectar();
-            Statement statement = conexion.createStatement();
-            ResultSet resultSet = statement.executeQuery(consultaSQL);
-
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("titulo") + " | "
-                        + resultSet.getString("autor") + " | "
-                        + resultSet.getString("isbn") + " | "
-                        + resultSet.getString("edicion"));
-            }
-
-            resultSet.close();
-            statement.close();
-            conexion.close();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        Libro bibliotecaHP[]=new Libro[3];
+        Libro bibliotecaSA[]=new Libro[3];
+ 
+        //Creamos objetos en cada posicion
+        bibliotecaHP[0]=new Libro("Harry Potter y la piedra filofal", "Rowling, J.K.", "9780807286001", 3);
+        bibliotecaHP[1]=new Libro("Harry Potter y las reliquias de la muerte", "Rowling, J.K.", "9780807286002", 2);
+        bibliotecaHP[2]=new Libro("Harry Potter y el caliz de fuego", "Rowling, J.K.", "9780807286003", 8);
+        
+        bibliotecaSA[0]=new Libro("El señor de los anillos", "J. R. R. Tolkien", "9788845292613",2);
+                    
+        
+        System.out.println("----------------------------------------------------------");
+        
+       // bibliotecaHP[1].createLibro();
+        
+      //  bibliotecaHP[1].readLibro();
     }
 
 }
